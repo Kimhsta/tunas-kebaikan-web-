@@ -31,7 +31,7 @@ const Topbar = () => {
 
         {/* Marquee Pemateri Kajian */}
         <div className="relative flex-1 h-5 overflow-hidden">
-          <div className="absolute whitespace-nowrap animate-marquee">
+          <div className="absolute whitespace-nowrap animate-marquee text-gray-500">
           Dosa-dosa yang membinasakan ~  Ad Durus Al Muhimmah Li' Ammatil Ummah ~  Ust. Abu Umar Raih Gelar, Lc. 
           </div>
         </div>
