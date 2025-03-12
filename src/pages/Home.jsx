@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Foto1 from "../assets/kegiatanKajian/kegiatan1.jpeg";
 import Foto2 from "../assets/kegiatanKajian/kegiatan2.jpeg";
+import Foto3 from "../assets/kegiatanKajian/kegiatan3.jpeg";
 
-const images = [Foto1, Foto2];
+const images = [Foto1, Foto2, Foto3];
 
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -67,15 +68,15 @@ const ImageSlider = () => {
       {/* Tombol Navigasi */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white p-2 rounded shadow-lg"
       >
-        ◀
+        <i class="ri-arrow-left-s-line"></i>
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white p-2 rounded shadow-lg"
       >
-        ▶
+        <i class="ri-arrow-right-s-line"></i>
       </button>
     </section>
   );
