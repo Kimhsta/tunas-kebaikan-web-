@@ -24,12 +24,12 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="navbar fixed w-full z-50 bg-white/85 backdrop-blur-md shadow-md transition-colors duration-300">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between py-3">
+    <div className="navbar fixed w-full z-50 bg-white/75 backdrop-blur-md shadow-md transition-colors duration-300">
+      <div className="container mx-auto px-4 md:px-8 lg:px-25">
+        <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <div className="logo">
-            <img src={logo} alt="Logo" className="h-12" />
+            <img src={logo} alt="Logo" className="h-8" />
           </div>
 
           {/* Desktop Menu */}
@@ -123,23 +123,6 @@ export const Navbar = () => {
             </li>
           </ul>
 
-          {/* Pencarian & Tema (Desktop) */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="text-gray-600 hover:text-gray-800">
-              <i className="ri-sun-line text-2xl"></i>
-            </button>
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search for"
-                className="px-3 py-1 border rounded-full focus:outline-none text-sm w-32"
-              />
-              <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
-                <i className="ri-search-2-line"></i>
-              </span>
-            </div>
-          </div>
-
           {/* Hamburger (Mobile) */}
           <div className="md:hidden">
             <button
@@ -169,7 +152,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu dengan Animasi Slide Down */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-md animate-slideDown">
+        <div className="md:hidden shadow-md animate-slideDown">
           <ul className="flex flex-col gap-4 px-6 py-4">
             <li>
               <a
@@ -257,25 +240,6 @@ export const Navbar = () => {
                   </li>
                 </ul>
               )}
-            </li>
-
-            {/* Mobile Search & Theme */}
-            <li className="border-t pt-4 mt-4">
-              <div className="flex items-center justify-between">
-                <button className="text-gray-600 hover:text-gray-800">
-                  <i className="ri-sun-line text-2xl"></i>
-                </button>
-                <div className="relative flex-1 ml-4">
-                  <input
-                    type="text"
-                    placeholder="Search for"
-                    className="w-full px-3 py-1 border rounded-full focus:outline-none text-sm"
-                  />
-                  <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500">
-                    <i className="ri-search-2-line"></i>
-                  </span>
-                </div>
-              </div>
             </li>
           </ul>
         </div>
