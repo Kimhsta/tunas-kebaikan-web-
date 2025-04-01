@@ -8,18 +8,22 @@ const images = [Foto1, Foto2, Foto3];
 const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
-  };
-
+  // Fungsi untuk slide sebelumnya
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    console.log("Previous slide clicked, currentIndex:", (currentIndex - 1 + images.length) % images.length); // Debugging
+  };
+
+  // Fungsi untuk slide berikutnya
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+    console.log("Next slide clicked, currentIndex:", (currentIndex + 1) % images.length); // Debugging
   };
 
   return (
     <section className="relative min-h-screen flex flex-col justify-between">
       {/* Background Image Slider */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full">
         <img
           src={images[currentIndex]}
           alt="Slide"
@@ -27,33 +31,27 @@ const ImageSlider = () => {
         />
       </div>
 
-     {/* Gradient Overlay */}
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
-
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
 
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-start justify-center min-h-[70vh] text-left text-white px-6 md:px-20">
-        {/* Label */}
         <div className="mb-4">
           <span className="bg-lime-500 px-4 py-1 text-2xl md:text-3xl text-black font-light">
             Kajian Rutin Bulanan
           </span>
         </div>
-
-        {/* Judul */}
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
           Pengaosan Akbar <br /> Masjid Agung Madaniyah Karanganyar
         </h1>
-
-        {/* Pemateri */}
         <p className="flex items-center space-x-2 text-lg md:text-xl mb-4">
           <i className="ri-mic-line text-2xl"></i>
           <span>Bersama Ust. Abul Aswad al Bayaty</span>
         </p>
       </div>
 
-      {/* Bullet Slider Dummy */}
-      <div className="relative z-10 flex justify-center mb-8">
+      {/* Bullet Points */}
+      <div className="relative z-20 flex justify-center mb-8">
         {images.map((_, i) => (
           <span
             key={i}
@@ -68,15 +66,15 @@ const ImageSlider = () => {
       {/* Tombol Navigasi */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white p-2 rounded shadow-lg"
+        className="absolute z-20 top-1/2 left-4 transform -translate-y-1/2 bg-white p-2 rounded shadow-lg hover:bg-gray-200 transition"
       >
-        <i class="ri-arrow-left-s-line"></i>
+        <i className="ri-arrow-left-s-line text-2xl"></i>
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white p-2 rounded shadow-lg"
+        className="absolute z-20 top-1/2 right-4 transform -translate-y-1/2 bg-white p-2 rounded shadow-lg hover:bg-gray-200 transition"
       >
-        <i class="ri-arrow-right-s-line"></i>
+        <i className="ri-arrow-right-s-line text-2xl"></i>
       </button>
     </section>
   );
