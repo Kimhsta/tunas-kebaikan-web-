@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion"; 
-import { FaFacebookF, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube, FaTelegram } from "react-icons/fa";
 import Foto1 from "../assets/kegiatanKajian/kegiatan1.jpeg";
 import Foto2 from "../assets/kegiatanKajian/kegiatan2.jpeg";
 import Foto3 from "../assets/kegiatanKajian/kegiatan3.jpeg";
+
+import Kajian1 from "../assets/Poster Kajian/WhatsApp Image 2025-03-19 at 21.43.14.jpeg";
+import Kajian2 from "../assets/Poster Kajian/WhatsApp Image 2025-03-09 at 05.45.37.jpeg";
+import Kajian3 from "../assets/Poster Kajian/WhatsApp Image 2025-04-04 at 18.34.26.jpeg";
 
 const slides = [
   {
@@ -130,41 +134,112 @@ const ImageSlider = () => {
   );
 };
 
+
 const SocialMediaSection = () => {
   return (
-    <div className="text-center py-10 bg-gray-100">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">
+    <div className="text-center py-14 bg-gradient-to-b from-gray-100 to-gray-200">
+      <h2 className="text-3xl font-extrabold text-gray-900 mb-20">
         Ikuti Kami di Media Sosial
       </h2>
-      <div className="flex justify-center gap-12">
-        <div className="flex flex-col items-center">
-          <FaFacebookF className="text-4xl text-teal-700" />
-          <span className="mt-2 text-gray-800 font-medium">Facebook</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <FaInstagram className="text-4xl text-teal-700" />
-          <span className="mt-2 text-gray-800 font-medium">Instagram</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <FaYoutube className="text-4xl text-teal-700" />
-          <span className="mt-2 text-gray-800 font-medium">Youtube</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <FaTiktok className="text-4xl text-teal-700" />
-          <span className="mt-2 text-gray-800 font-medium">Tiktok</span>
+      <div className="flex justify-center  gap-16">
+        {[
+          { icon: <FaFacebookF />, name: "Facebook", link: "https://web.facebook.com/profile.php?id=100076263575730" },
+          { icon: <FaInstagram />, name: "Instagram", link: "https://www.instagram.com/tunas_kebaikan_/" },
+          { icon: <FaYoutube />, name: "YouTube", link: "https://www.youtube.com/@TunasKebaikan-d3q" },
+          { icon: <FaTelegram />, name: "Telegram", link: "https://t.me/tunaskebaikan" },
+        ].map((item, index) => (
+          <a
+            key={index}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center transform transition-all duration-300 hover:scale-110"
+          >
+            <div className="w-20 h-20 flex items-center justify-center rounded-full bg-lime-400 text-white text-5xl shadow-lg">
+              {item.icon}
+            </div>
+            <span className="mt-3 text-lg text-gray-900 font-semibold">
+              {item.name}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+import { useRef } from "react";
+
+const KajianPopuler = () => {
+  const scrollRef = useRef(null);
+
+  const kajianList = [
+    {
+      title: "Meningkatkan Ketakwaan di Era Digital",
+      subtitle: "Raih keberkahan dengan ilmu dan teknologi",
+      image: Kajian1,
+    },
+    {
+      title: "Menjaga Hati di Tengah Kesibukan",
+      subtitle: "Ketenangan batin di dunia yang semakin sibuk",
+      image: Kajian2,
+    },
+    {
+      title: "Istiqomah dalam Ibadah",
+      subtitle: "Menjalani hidup dengan ketenangan dan keistiqomahan",
+      image: Kajian3,
+    },
+  ];
+
+  return (
+    <div className="container mx-auto py-8 px-4 md:px-6">
+      {/* Judul */}
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+        <span className="text-purple-600">Temukan Kajian Pilihan</span> untuk Menambah Ilmu
+      </h2>
+      <p className="text-sm md:text-lg text-gray-600 mt-2">
+        Dapatkan wawasan islami yang mendalam dan berkualitas
+      </p>
+
+      {/* Slider di Mobile */}
+      <div className="overflow-x-auto scrollbar-hide mt-6 mx-4 md:mx-0">
+        <div ref={scrollRef} className="flex gap-4 px-4 md:px-0 md:grid md:grid-cols-3">
+          {kajianList.map((kajian, index) => (
+            <div
+              key={index}
+              className="bg-white p-2 rounded-lg shadow-md min-w-[60%] md:min-w-0 md:w-auto flex-shrink-0 md:flex-shrink"
+            >
+              <img
+                src={kajian.image}
+                alt={kajian.title}
+                className="w-auto h-48 md:h-84 object-cover rounded-md mb-3"
+              />
+              <h3 className="text-md md:text-lg font-semibold text-gray-900">
+                {kajian.title}
+              </h3>
+              <p className="text-gray-600 mt-1 text-xs md:text-sm">
+                {kajian.subtitle}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 };
 
+
+
+
 const HomePage = () => {
   return (
     <div>
       <ImageSlider />
+      <KajianPopuler />
       <SocialMediaSection />
     </div>
   );
 };
+
 
 export default HomePage;
