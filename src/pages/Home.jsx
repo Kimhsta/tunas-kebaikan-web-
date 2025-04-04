@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion"; 
+import { FaFacebookF, FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 import Foto1 from "../assets/kegiatanKajian/kegiatan1.jpeg";
 import Foto2 from "../assets/kegiatanKajian/kegiatan2.jpeg";
 import Foto3 from "../assets/kegiatanKajian/kegiatan3.jpeg";
@@ -29,7 +30,6 @@ const ImageSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showNav, setShowNav] = useState(false);
 
-  // Fungsi Next & Prev Slide
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
   };
@@ -38,7 +38,6 @@ const ImageSlider = () => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  // Slider otomatis setiap 5 detik
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
@@ -50,7 +49,6 @@ const ImageSlider = () => {
       onMouseEnter={() => setShowNav(true)}
       onMouseLeave={() => setShowNav(false)}
     >
-      {/* Background Image Slider */}
       <div className="absolute inset-0 w-full h-full">
         <img
           src={slides[currentIndex].image}
@@ -59,12 +57,10 @@ const ImageSlider = () => {
         />
       </div>
 
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
 
-      {/* Hero Content dengan Animasi */}
       <motion.div
-        key={currentIndex} // Agar animasi berjalan tiap slide berubah
+        key={currentIndex}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -76,10 +72,7 @@ const ImageSlider = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="mb-2"
         >
-          <span
-            className="px-3 py-1 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-black"
-            style={{ backgroundColor: "#A3E635" }}
-          >
+          <span className="px-3 py-1 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-black bg-lime-400">
             {slides[currentIndex].category}
           </span>
         </motion.div>
@@ -104,7 +97,6 @@ const ImageSlider = () => {
         </motion.p>
       </motion.div>
 
-      {/* Bullet Points */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
         {slides.map((_, i) => (
           <span
@@ -116,29 +108,63 @@ const ImageSlider = () => {
           ></span>
         ))}
       </div>
-{/* Tombol Navigasi (Hanya di Web, Mojok Kanan-Kiri) */}
-{showNav && (
-  <>
-    {/* Tombol Previous (Kiri) */}
-    <button
-      onClick={prevSlide}
-      className="hidden sm:flex absolute z-20 top-1/2 left-0 transform -translate-y-1/2 bg-white p-2 rounded-r-lg shadow-lg hover:bg-lime-400 transition"
-    >
-      <i className="ri-arrow-left-s-line text-2xl"></i>
-    </button>
 
-    {/* Tombol Next (Kanan) */}
-    <button
-      onClick={nextSlide}
-      className="hidden sm:flex absolute z-20 top-1/2 right-0 transform -translate-y-1/2 bg-white p-2  rounded-l-lg shadow-lg hover:bg-lime-400 transition"
-    >
-      <i className="ri-arrow-right-s-line text-2xl"></i>
-    </button>
-  </>
-)}
+      {showNav && (
+        <>
+          <button
+            onClick={prevSlide}
+            className="hidden sm:flex absolute z-20 top-1/2 left-0 transform -translate-y-1/2 bg-white p-2 rounded-r-lg shadow-lg hover:bg-lime-400 transition"
+          >
+            <i className="ri-arrow-left-s-line text-2xl"></i>
+          </button>
 
+          <button
+            onClick={nextSlide}
+            className="hidden sm:flex absolute z-20 top-1/2 right-0 transform -translate-y-1/2 bg-white p-2 rounded-l-lg shadow-lg hover:bg-lime-400 transition"
+          >
+            <i className="ri-arrow-right-s-line text-2xl"></i>
+          </button>
+        </>
+      )}
     </section>
   );
 };
 
-export default ImageSlider;
+const SocialMediaSection = () => {
+  return (
+    <div className="text-center py-10 bg-gray-100">
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">
+        Ikuti Kami di Media Sosial
+      </h2>
+      <div className="flex justify-center gap-12">
+        <div className="flex flex-col items-center">
+          <FaFacebookF className="text-4xl text-teal-700" />
+          <span className="mt-2 text-gray-800 font-medium">Facebook</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <FaInstagram className="text-4xl text-teal-700" />
+          <span className="mt-2 text-gray-800 font-medium">Instagram</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <FaYoutube className="text-4xl text-teal-700" />
+          <span className="mt-2 text-gray-800 font-medium">Youtube</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <FaTiktok className="text-4xl text-teal-700" />
+          <span className="mt-2 text-gray-800 font-medium">Tiktok</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const HomePage = () => {
+  return (
+    <div>
+      <ImageSlider />
+      <SocialMediaSection />
+    </div>
+  );
+};
+
+export default HomePage;

@@ -180,7 +180,7 @@ export const Navbar = () => {
                 <ul className="pl-4 mt-2 animate-dropdown">
                   <li>
                     <a
-                      href="/kajian/sub1"
+                      href="../pages/KajianRutin.jsx"
                       className="block px-4 py-2 text-gray-700 hover:bg-green-100"
                     >
                       Kajian Rutin
@@ -188,10 +188,10 @@ export const Navbar = () => {
                   </li>
                   <li>
                     <a
-                      href="/kajian/sub2"
+                      href="/pages/TablikAkbar.jsx"
                       className="block px-4 py-2 text-gray-700 hover:bg-green-100"
                     >
-                      Kajian Pekan
+                      Tablik Akbar
                     </a>
                   </li>
                 </ul>

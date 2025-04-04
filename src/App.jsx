@@ -2,6 +2,7 @@
 import Topbar from "./components/Topbar";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+// import KajianRutin from "./pages/KajianRutin";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       {/* Konten di bawahnya diberi margin/padding-top agar tidak tertutup */}
       <div className="pt-[0rem]">
         <Home />
+        {/* <KajianRutin /> */}
       </div>
     </>
   );
