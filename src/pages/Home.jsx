@@ -116,24 +116,27 @@ const ImageSlider = () => {
           ></span>
         ))}
       </div>
+{/* Tombol Navigasi (Hanya di Web, Mojok Kanan-Kiri) */}
+{showNav && (
+  <>
+    {/* Tombol Previous (Kiri) */}
+    <button
+      onClick={prevSlide}
+      className="hidden sm:flex absolute z-20 top-1/2 left-0 transform -translate-y-1/2 bg-white p-2 rounded-r-lg shadow-lg hover:bg-lime-400 transition"
+    >
+      <i className="ri-arrow-left-s-line text-2xl"></i>
+    </button>
 
-      {/* Tombol Navigasi */}
-      {showNav && (
-        <>
-          <button
-            onClick={prevSlide}
-            className="hidden sm:flex absolute z-20 top-1/2 left-4 transform -translate-y-1/2 bg-white p-2 rounded shadow-lg hover:bg-lime-400 transition md:left-6 lg:left-8"
-          >
-            <i className="ri-arrow-left-s-line text-2xl"></i>
-          </button>
-          <button
-            onClick={nextSlide}
-            className="hidden sm:flex absolute z-20 top-1/2 right-4 transform -translate-y-1/2 bg-white p-2 rounded shadow-lg hover:bg-lime-400 transition md:right-6 lg:right-8"
-          >
-            <i className="ri-arrow-right-s-line text-2xl"></i>
-          </button>
-        </>
-      )}
+    {/* Tombol Next (Kanan) */}
+    <button
+      onClick={nextSlide}
+      className="hidden sm:flex absolute z-20 top-1/2 right-0 transform -translate-y-1/2 bg-white p-2  rounded-l-lg shadow-lg hover:bg-lime-400 transition"
+    >
+      <i className="ri-arrow-right-s-line text-2xl"></i>
+    </button>
+  </>
+)}
+
     </section>
   );
 };
