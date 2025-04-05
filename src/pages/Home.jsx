@@ -135,30 +135,48 @@ const ImageSlider = () => {
 };
 
 
+
 const SocialMediaSection = () => {
   return (
     <div className="text-center py-14 bg-gradient-to-b from-gray-100 to-gray-200">
-      <h2 className="text-3xl font-extrabold text-gray-900 mb-20">
+      <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-12 md:mb-20">
         Ikuti Kami di Media Sosial
       </h2>
-      <div className="flex justify-center  gap-16">
+
+      <div className="flex flex-wrap justify-center gap-8 md:gap-16 px-4">
         {[
-          { icon: <FaFacebookF />, name: "Facebook", link: "https://web.facebook.com/profile.php?id=100076263575730" },
-          { icon: <FaInstagram />, name: "Instagram", link: "https://www.instagram.com/tunas_kebaikan_/" },
-          { icon: <FaYoutube />, name: "YouTube", link: "https://www.youtube.com/@TunasKebaikan-d3q" },
-          { icon: <FaTelegram />, name: "Telegram", link: "https://t.me/tunaskebaikan" },
+          {
+            icon: <FaFacebookF />,
+            name: "Facebook",
+            link: "https://web.facebook.com/profile.php?id=100076263575730",
+          },
+          {
+            icon: <FaInstagram />,
+            name: "Instagram",
+            link: "https://www.instagram.com/tunas_kebaikan_/",
+          },
+          {
+            icon: <FaYoutube />,
+            name: "YouTube",
+            link: "https://www.youtube.com/@TunasKebaikan-d3q",
+          },
+          {
+            icon: <FaTelegram />,
+            name: "Telegram",
+            link: "https://t.me/tunaskebaikan",
+          },
         ].map((item, index) => (
           <a
             key={index}
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center transform transition-all duration-300 hover:scale-110"
+            className="flex flex-col items-center transform transition-all duration-300 hover:scale-110 w-24 md:w-28"
           >
-            <div className="w-20 h-20 flex items-center justify-center rounded-full bg-lime-400 text-white text-5xl shadow-lg">
+            <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full bg-lime-400 text-white text-3xl md:text-5xl shadow-lg">
               {item.icon}
             </div>
-            <span className="mt-3 text-lg text-gray-900 font-semibold">
+            <span className="mt-3 text-base md:text-lg text-gray-900 font-semibold">
               {item.name}
             </span>
           </a>
@@ -167,6 +185,7 @@ const SocialMediaSection = () => {
     </div>
   );
 };
+
 
 import { useRef } from "react";
 
@@ -195,38 +214,42 @@ const KajianPopuler = () => {
     <div className="container mx-auto py-8 px-4 md:px-6">
       {/* Judul */}
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-        <span className="text-purple-600">Temukan Kajian Pilihan</span> untuk Menambah Ilmu
+        <span className="text-lime-500">Kajian Populer</span> 
       </h2>
-      <p className="text-sm md:text-lg text-gray-600 mt-2">
-        Dapatkan wawasan islami yang mendalam dan berkualitas
-      </p>
 
-      {/* Slider di Mobile */}
-      <div className="overflow-x-auto scrollbar-hide mt-6 mx-4 md:mx-0">
-        <div ref={scrollRef} className="flex gap-4 px-4 md:px-0 md:grid md:grid-cols-3">
-          {kajianList.map((kajian, index) => (
-            <div
-              key={index}
-              className="bg-white p-2 rounded-lg shadow-md min-w-[60%] md:min-w-0 md:w-auto flex-shrink-0 md:flex-shrink"
-            >
-              <img
-                src={kajian.image}
-                alt={kajian.title}
-                className="w-auto h-48 md:h-84 object-cover rounded-md mb-3"
-              />
-              <h3 className="text-md md:text-lg font-semibold text-gray-900">
-                {kajian.title}
-              </h3>
-              <p className="text-gray-600 mt-1 text-xs md:text-sm">
-                {kajian.subtitle}
-              </p>
-            </div>
-          ))}
+      {/* Wrapper untuk Scroll Horizontal di Mobile */}
+      <div className="mt-6 md:mt-8">
+  <div
+    ref={scrollRef}
+    className="flex overflow-x-auto gap-4 scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible"
+  >
+    {kajianList.map((kajian, index) => (
+      <div
+        key={index}
+        className="bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0 w-[80%] sm:w-[60%] md:w-auto"
+      >
+        <img
+          src={kajian.image}
+          alt={kajian.title}
+          className="w-full h-100 object-cover"
+        />
+        <div className="p-3">
+          <h3 className="text-md md:text-lg font-semibold text-gray-900">
+            {kajian.title}
+          </h3>
+          <p className="text-gray-600 mt-1 text-xs md:text-sm">
+            {kajian.subtitle}
+          </p>
         </div>
       </div>
+    ))}
+  </div>
+</div>
+
     </div>
   );
 };
+
 
 
 
