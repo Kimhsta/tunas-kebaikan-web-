@@ -135,6 +135,39 @@ const ImageSlider = () => {
 };
 
 
+// Gallery.jsx
+const imageUrls = [
+{
+  image: Foto1,
+},
+{
+  image: Foto1,
+},
+{
+  image: Foto1,
+},
+];
+
+const Gallery = () => {
+  return (
+    <section className="py-10 px-4 md:px-8 lg:px-16 bg-white">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {imageUrls.map((src, index) => (
+          <div key={index} className="w-full overflow-hidden rounded-lg shadow-sm hover:shadow-md transition duration-300">
+<img
+  src={src.image}
+  alt={`Galeri ${index + 1}`}
+  className="w-full h-auto object-cover"
+/>
+
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+
 
 const SocialMediaSection = () => {
   return (
@@ -245,13 +278,9 @@ const KajianPopuler = () => {
     ))}
   </div>
 </div>
-
     </div>
   );
 };
-
-
-
 
 
 const HomePage = () => {
@@ -259,6 +288,7 @@ const HomePage = () => {
     <div>
       <ImageSlider />
       <KajianPopuler />
+      <Gallery />
       <SocialMediaSection />
     </div>
   );
