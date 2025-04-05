@@ -153,7 +153,7 @@ export const Navbar = () => {
       {/* Mobile Menu dengan Animasi Slide Down */}
       {isMobileMenuOpen && (
         <div className="md:hidden animate-slide-down">
-          <ul className="mt-4 mx-4 mb-4 flex flex-col gap-4 px-6 py-4 border-2 border-gray-400 rounded-lg">
+          <ul className="mt-4 mx-4 mb-4 flex flex-col gap-4 px-6 py-4 border-2 border-gray-50 rounded-lg">
             <li>
               <a
                 href="#"
