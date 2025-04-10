@@ -141,23 +141,36 @@ const imageUrls = [
   image: Foto1,
 },
 {
-  image: Foto1,
+  image: Foto2,
 },
 {
+  image: Foto3,
+},
+{
+  image: Foto1,
+},{
+  image: Foto1,
+},{
+  image: Foto1,
+},{
+  image: Foto1,
+},{
+  image: Foto1,
+},{
   image: Foto1,
 },
 ];
 
 const Gallery = () => {
   return (
-    <section className="py-10 px-4 md:px-8 lg:px-16 bg-white">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    <section className="py-2 px-2 md:py-8 lg:px-4">
+      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2 ">
         {imageUrls.map((src, index) => (
           <div key={index} className="w-full overflow-hidden rounded-lg shadow-sm hover:shadow-md transition duration-300">
 <img
   src={src.image}
   alt={`Galeri ${index + 1}`}
-  className="w-full h-auto object-cover"
+  className="w-full aspect-[5/3] object-cover"
 />
 
           </div>

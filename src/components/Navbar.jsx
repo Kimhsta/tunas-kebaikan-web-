@@ -4,23 +4,15 @@ import logo from "../assets/logo.png";
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [dropdownKajian, setDropdownKajian] = useState(false);
-  const [dropdownTentang, setDropdownTentang] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
     // Tutup dropdown ketika menu mobile di-toggle
     setDropdownKajian(false);
-    setDropdownTentang(false);
   };
 
   const toggleDropdownKajian = () => {
     setDropdownKajian((prev) => !prev);
-    if (dropdownTentang) setDropdownTentang(false);
-  };
-
-  const toggleDropdownTentang = () => {
-    setDropdownTentang((prev) => !prev);
-    if (dropdownKajian) setDropdownKajian(false);
   };
 
   return (
@@ -36,10 +28,10 @@ export const Navbar = () => {
           <ul className="hidden md:flex gap-8">
             <li>
               <a
-                href="#"
+                href="/"
                 className="font-medium text-gray-700 hover:text-green-600 transition"
               >
-                Beranda
+                Home
               </a>
             </li>
 
@@ -80,46 +72,21 @@ export const Navbar = () => {
 
             <li>
               <a
-                href="/"
+                href="/Artikel"
                 className="font-medium text-gray-700 hover:text-green-600 transition"
               >
                 Artikel
               </a>
             </li>
 
-            {/* Dropdown untuk Tentang Kami (Desktop) */}
-            <li className="relative">
-              <button
-                onClick={toggleDropdownTentang}
-                className="flex items-center gap-1 font-medium text-gray-700 hover:text-green-600 transition focus:outline-none"
+            {/* Regular About link */}
+            <li>
+              <a
+                href="/About"
+                className="font-medium text-gray-700 hover:text-green-600 transition"
               >
-                Tentang Kami
-                <i
-                  className={`ri-arrow-down-s-line transition-transform duration-300 ${
-                    dropdownTentang ? "rotate-180" : ""
-                  }`}
-                ></i>
-              </button>
-              {dropdownTentang && (
-                <ul className="absolute top-full left-0 mt-2 w-40 bg-white shadow-lg rounded-md py-2 z-10 animate-dropdown">
-                  <li>
-                    <a
-                      href="/tentang/sejarah"
-                      className="block px-4 py-2 text-gray-700 hover:bg-green-100"
-                    >
-                      Sejarah
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/tentang/visi"
-                      className="block px-4 py-2 text-gray-700 hover:bg-green-100"
-                    >
-                      Visi & Misi
-                    </a>
-                  </li>
-                </ul>
-              )}
+                About
+              </a>
             </li>
           </ul>
 
@@ -159,7 +126,7 @@ export const Navbar = () => {
                 href="#"
                 className="font-medium text-gray-700 hover:text-green-600 transition block"
               >
-                Beranda
+                Home
               </a>
             </li>
 
@@ -207,39 +174,14 @@ export const Navbar = () => {
               </a>
             </li>
 
-            {/* Mobile Dropdown untuk Tentang Kami */}
+            {/* Regular About link for mobile */}
             <li>
-              <button
-                onClick={toggleDropdownTentang}
-                className="w-full flex justify-between items-center font-medium text-gray-700 hover:text-green-600 transition focus:outline-none"
+              <a
+                href="/About"
+                className="font-medium text-gray-700 hover:text-green-600 transition block"
               >
-                Tentang Kami
-                <i
-                  className={`ri-arrow-down-s-line transition-transform duration-300 ${
-                    dropdownTentang ? "rotate-180" : ""
-                  }`}
-                ></i>
-              </button>
-              {dropdownTentang && (
-                <ul className="pl-4 mt-2 animate-dropdown">
-                  <li>
-                    <a
-                      href="/tentang/sejarah"
-                      className="block px-4 py-2 text-gray-700 hover:bg-green-100"
-                    >
-                      Sejarah
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/tentang/visi"
-                      className="block px-4 py-2 text-gray-700 hover:bg-green-100"
-                    >
-                      Visi & Misi
-                    </a>
-                  </li>
-                </ul>
-              )}
+                About
+              </a>
             </li>
           </ul>
         </div>
