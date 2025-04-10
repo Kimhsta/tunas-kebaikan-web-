@@ -87,29 +87,37 @@ const ImageSlider = () => {
       </motion.div>
 
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
-        {slides.map((_, i) => (
-          <span
-            key={i}
-            className={`w-3 h-3 rounded-full ${i === currentIndex ? "bg-white" : "bg-gray-400 opacity-50"} transition duration-300 cursor-pointer`}
-            onClick={() => setCurrentIndex(i)}
-          ></span>
-        ))}
-      </div>
+  {slides.map((_, i) => (
+    <span
+      key={i}
+      className={`
+        transition-all duration-300 cursor-pointer
+        rounded-full
+        ${i === currentIndex 
+          ? "bg-white scale-125 shadow-md" 
+          : "bg-gray-400 opacity-50"}
+        w-2 h-2 sm:w-3 sm:h-3
+      `}
+      onClick={() => setCurrentIndex(i)}
+    ></span>
+  ))}
+</div>
+
 
       {showNav && (
         <>
           <button
             onClick={prevSlide}
-            className="hidden sm:flex absolute z-20 top-1/2 left-0 transform -translate-y-1/2 bg-white p-2 rounded-r-lg shadow-lg hover:bg-lime-400 transition"
+            className="hidden sm:flex items-center justify-start w-8 h-15 absolute z-20 top-[55%] left-0 transform -translate-y-1/2 bg-white rounded-r-lg shadow-lg hover:bg-lime-400 transition"
           >
-            <i className="ri-arrow-left-s-line text-2xl"></i>
+            <i className="ri-arrow-left-s-line text-3xl"></i>
           </button>
 
           <button
             onClick={nextSlide}
-            className="hidden sm:flex absolute z-20 top-1/2 right-0 transform -translate-y-1/2 bg-white p-2 rounded-l-lg shadow-lg hover:bg-lime-400 transition"
+            className="hidden sm:flex items-center justify-start w-8 h-15 absolute z-20 top-[55%] right-0 transform -translate-y-1/2 bg-white p-1 rounded-l-lg shadow-lg hover:bg-lime-400 transition"
           >
-            <i className="ri-arrow-right-s-line text-2xl"></i>
+            <i className="ri-arrow-right-s-line text-3xl"></i>
           </button>
         </>
       )}
