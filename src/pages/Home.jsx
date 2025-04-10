@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion"; 
-import { FaFacebookF, FaInstagram, FaYoutube, FaTelegram } from "react-icons/fa";
+import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import Foto1 from "../assets/kegiatanKajian/kegiatan1.jpeg";
 import Foto2 from "../assets/kegiatanKajian/kegiatan2.jpeg";
 import Foto3 from "../assets/kegiatanKajian/kegiatan3.jpeg";
-
 import Kajian1 from "../assets/Poster Kajian/WhatsApp Image 2025-03-19 at 21.43.14.jpeg";
 import Kajian2 from "../assets/Poster Kajian/WhatsApp Image 2025-03-09 at 05.45.37.jpeg";
 import Kajian3 from "../assets/Poster Kajian/WhatsApp Image 2025-04-04 at 18.34.26.jpeg";
@@ -14,19 +12,16 @@ const slides = [
     image: Foto1,
     category: "Kajian Rutin Bulanan",
     title: "Pengaosan Akbar Masjid Agung Madaniyah Karanganyar",
-    subtitle: "Bersama Ust. Abul Aswad al Bayaty",
   },
   {
     image: Foto2,
     category: "Kegiatan Douroh",
     title: "Fiqih Puasa di Masjid Islamic Center Karanganyar",
-    subtitle: "Bersama Ust. Abul Aswad al Bayaty",
   },
   {
     image: Foto3,
     category: "Bulan Ramadhan",
     title: "Buka Bersama dan Pembagian 1000 Paket Sayur dan Sembako",
-    subtitle: "Dengan Dr. Ahmad Syafi'i",
   },
 ];
 
@@ -49,7 +44,7 @@ const ImageSlider = () => {
 
   return (
     <section
-      className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden"
+      className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden "
       onMouseEnter={() => setShowNav(true)}
       onMouseLeave={() => setShowNav(false)}
     >
@@ -68,7 +63,7 @@ const ImageSlider = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative z-10 flex flex-col sm:justify-center justify-end h-full text-white px-4 sm:px-6 md:px-12 lg:px-20 pb-12 sm:pb-0"
+        className="relative z-10 flex flex-col sm:justify-center justify-end h-full text-white px-4 sm:px-6 md:px-12 lg:px-40 pb-10 sm:pt-50"
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -89,25 +84,13 @@ const ImageSlider = () => {
         >
           {slides[currentIndex].title}
         </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="flex items-center space-x-2 text-base sm:text-lg md:text-xl mb-2"
-        >
-          <i className="ri-mic-line text-xl sm:text-2xl"></i>
-          <span>{slides[currentIndex].subtitle}</span>
-        </motion.p>
       </motion.div>
 
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
         {slides.map((_, i) => (
           <span
             key={i}
-            className={`w-3 h-3 rounded-full ${
-              i === currentIndex ? "bg-white" : "bg-gray-400 opacity-50"
-            } transition duration-300 cursor-pointer`}
+            className={`w-3 h-3 rounded-full ${i === currentIndex ? "bg-white" : "bg-gray-400 opacity-50"} transition duration-300 cursor-pointer`}
             onClick={() => setCurrentIndex(i)}
           ></span>
         ))}
@@ -134,106 +117,24 @@ const ImageSlider = () => {
   );
 };
 
-
-// Gallery.jsx
-const imageUrls = [
-{
-  image: Foto1,
-},
-{
-  image: Foto2,
-},
-{
-  image: Foto3,
-},
-{
-  image: Foto1,
-},{
-  image: Foto1,
-},{
-  image: Foto1,
-},{
-  image: Foto1,
-},{
-  image: Foto1,
-},{
-  image: Foto1,
-},
-];
-
 const Gallery = () => {
+  const imageUrls = [Foto1, Foto2, Foto3, Foto1, Foto1, Foto1, Foto1, Foto1, Foto1];
   return (
     <section className="py-2 px-2 md:py-8 lg:px-4">
-      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2 ">
-        {imageUrls.map((src, index) => (
+      <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2">
+        {imageUrls.map((image, index) => (
           <div key={index} className="w-full overflow-hidden rounded-lg shadow-sm hover:shadow-md transition duration-300">
-<img
-  src={src.image}
-  alt={`Galeri ${index + 1}`}
-  className="w-full aspect-[5/3] object-cover"
-/>
-
+            <img
+              src={image}
+              alt={`Galeri ${index + 1}`}
+              className="w-full aspect-[5/3] object-cover"
+            />
           </div>
         ))}
       </div>
     </section>
   );
 };
-
-
-
-const SocialMediaSection = () => {
-  return (
-    <div className="text-center py-14 bg-gradient-to-b from-gray-100 to-gray-200">
-      <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-12 md:mb-20">
-        Ikuti Kami di Media Sosial
-      </h2>
-
-      <div className="flex flex-wrap justify-center gap-8 md:gap-16 px-4">
-        {[
-          {
-            icon: <FaFacebookF />,
-            name: "Facebook",
-            link: "https://web.facebook.com/profile.php?id=100076263575730",
-          },
-          {
-            icon: <FaInstagram />,
-            name: "Instagram",
-            link: "https://www.instagram.com/tunas_kebaikan_/",
-          },
-          {
-            icon: <FaYoutube />,
-            name: "YouTube",
-            link: "https://www.youtube.com/@TunasKebaikan-d3q",
-          },
-          {
-            icon: <FaTelegram />,
-            name: "Telegram",
-            link: "https://t.me/tunaskebaikan",
-          },
-        ].map((item, index) => (
-          <a
-            key={index}
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center transform transition-all duration-300 hover:scale-110 w-24 md:w-28"
-          >
-            <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-full bg-lime-400 text-white text-3xl md:text-5xl shadow-lg">
-              {item.icon}
-            </div>
-            <span className="mt-3 text-base md:text-lg text-gray-900 font-semibold">
-              {item.name}
-            </span>
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-
-import { useRef } from "react";
 
 const KajianPopuler = () => {
   const scrollRef = useRef(null);
@@ -258,43 +159,40 @@ const KajianPopuler = () => {
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-6">
-      {/* Judul */}
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-        <span className="text-lime-500">Kajian Populer</span> 
+        <span className="text-lime-500">Kajian Populer</span>
       </h2>
 
-      {/* Wrapper untuk Scroll Horizontal di Mobile */}
       <div className="mt-6 md:mt-8">
-  <div
-    ref={scrollRef}
-    className="flex overflow-x-auto gap-4 scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible"
-  >
-    {kajianList.map((kajian, index) => (
-      <div
-        key={index}
-        className="bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0 w-[80%] sm:w-[60%] md:w-auto"
-      >
-        <img
-          src={kajian.image}
-          alt={kajian.title}
-          className="w-full h-100 object-cover"
-        />
-        <div className="p-3">
-          <h3 className="text-md md:text-lg font-semibold text-gray-900">
-            {kajian.title}
-          </h3>
-          <p className="text-gray-600 mt-1 text-xs md:text-sm">
-            {kajian.subtitle}
-          </p>
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto gap-4 scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible"
+        >
+          {kajianList.map((kajian, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0 w-[80%] sm:w-[60%] md:w-auto"
+            >
+              <img
+                src={kajian.image}
+                alt={kajian.title}
+                className="w-full h-100 object-cover"
+              />
+              <div className="p-3">
+                <h3 className="text-md md:text-lg font-semibold text-gray-900">
+                  {kajian.title}
+                </h3>
+                <p className="text-gray-600 mt-1 text-xs md:text-sm">
+                  {kajian.subtitle}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div>
     </div>
   );
 };
-
 
 const HomePage = () => {
   return (
@@ -302,10 +200,8 @@ const HomePage = () => {
       <ImageSlider />
       <KajianPopuler />
       <Gallery />
-      <SocialMediaSection />
     </div>
   );
 };
-
 
 export default HomePage;

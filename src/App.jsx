@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Topbar from "./components/Topbar";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"; // ← Tambahkan ini
 import Home from "./pages/Home";
 import About from "./pages/About";
 // import KajianRutin from "./pages/KajianRutin";
@@ -15,13 +16,16 @@ function App() {
         <Navbar />
       </div>
 
-      {/* Konten di bawahnya diberi margin/padding-top agar tidak tertutup */}
+      {/* Konten utama */}
       <div className="pt-[0rem]">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           {/* <Route path="/kajian-rutin" element={<KajianRutin />} /> */}
         </Routes>
+
+        {/* Footer di bawah konten */}
+        <Footer />
       </div>
     </Router>
   );
