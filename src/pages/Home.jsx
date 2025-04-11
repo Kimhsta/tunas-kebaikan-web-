@@ -6,6 +6,7 @@ import Foto3 from "../assets/kegiatanKajian/kegiatan3.jpeg";
 import Kajian1 from "../assets/Poster Kajian/WhatsApp Image 2025-03-19 at 21.43.14.jpeg";
 import Kajian2 from "../assets/Poster Kajian/WhatsApp Image 2025-03-09 at 05.45.37.jpeg";
 import Kajian3 from "../assets/Poster Kajian/WhatsApp Image 2025-04-04 at 18.34.26.jpeg";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
@@ -204,12 +205,45 @@ const KajianPopuler = () => {
   );
 };
 
+const DonasiDakwah = () => {
+  return (
+    <div className="md:hidden px-4 py-6 bg-gradient-to-b from-white to-blue-50 dark:from-black dark:to-gray-900">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center">
+        <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+          Siap Menjadi bagian <span className="text-lime-600">Dari Kami?</span>
+        </h2>
+        <p className="text-sm text-gray-700 dark:text-gray-300 mt-4">
+          Bantu sebarkan kebaikan dengan berkontribusi melalui donasi. 
+          Dukunganmu adalah bagian dari dakwah yang penuh keberkahan.
+        </p>
+
+        {/* Tombol navigasi ke halaman Donasi */}
+        <Link
+          to="/donasi"
+          className="mt-4 block bg-lime-500 hover:bg-lime-600 text-white font-semibold py-2 rounded-lg transition"
+        >
+          Donasi Sekarang
+        </Link>
+
+        {/* Tombol program dakwah, bisa diganti navigasi juga kalau ada */}
+        <button
+          className="mt-2 block w-full border border-lime-500 text-lime-600 hover:bg-lime-50 dark:hover:bg-gray-700 font-semibold py-2 rounded-lg transition"
+        >
+          Lihat Program Dakwah
+        </button>
+      </div>
+    </div>
+  );
+};
+
+
 const HomePage = () => {
   return (
     <div className="bg-white dark:bg-black">
       <ImageSlider />
       <KajianPopuler />
       <Gallery />
+      <DonasiDakwah />
     </div>
   );
 };
