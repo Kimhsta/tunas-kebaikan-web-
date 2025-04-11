@@ -44,7 +44,7 @@ const ImageSlider = () => {
 
   return (
     <section
-      className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden "
+      className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden"
       onMouseEnter={() => setShowNav(true)}
       onMouseLeave={() => setShowNav(false)}
     >
@@ -52,11 +52,11 @@ const ImageSlider = () => {
         <img
           src={slides[currentIndex].image}
           alt="Slide"
-          className="w-full h-full object-cover md:object-cover"
+          className="w-full h-full object-cover"
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black dark:to-black/70 opacity-70"></div>
 
       <motion.div
         key={currentIndex}
@@ -71,7 +71,7 @@ const ImageSlider = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="mb-2"
         >
-          <span className="px-2 py-0.5 sm:px-3 sm:py-1 text-sm sm:text-base md:text-lg lg:text-3xl  font-light text-black bg-lime-400">
+          <span className="px-2 py-0.5 sm:px-3 sm:py-1 text-sm sm:text-base md:text-lg lg:text-3xl font-light text-black dark:text-white bg-lime-400">
             {slides[currentIndex].category}
           </span>
         </motion.div>
@@ -87,35 +87,34 @@ const ImageSlider = () => {
       </motion.div>
 
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
-  {slides.map((_, i) => (
-    <span
-      key={i}
-      className={`
-        transition-all duration-300 cursor-pointer
-        rounded-full
-        ${i === currentIndex 
-          ? "bg-white scale-125 shadow-md" 
-          : "bg-gray-400 opacity-50"}
-        w-2 h-2 sm:w-3 sm:h-3
-      `}
-      onClick={() => setCurrentIndex(i)}
-    ></span>
-  ))}
-</div>
-
+        {slides.map((_, i) => (
+          <span
+            key={i}
+            className={`
+              transition-all duration-300 cursor-pointer
+              rounded-full
+              ${i === currentIndex 
+                ? "bg-white dark:bg-lime-400 scale-125 shadow-md" 
+                : "bg-gray-400 dark:bg-gray-600 opacity-50"}
+              w-2 h-2 sm:w-3 sm:h-3
+            `}
+            onClick={() => setCurrentIndex(i)}
+          ></span>
+        ))}
+      </div>
 
       {showNav && (
         <>
           <button
             onClick={prevSlide}
-            className="hidden sm:flex items-center justify-start w-8 h-15 absolute z-20 top-[55%] left-0 transform -translate-y-1/2 bg-white rounded-r-lg shadow-lg hover:bg-lime-400 transition"
+            className="hidden sm:flex items-center justify-start w-8 h-15 absolute z-20 top-[55%] left-0 transform -translate-y-1/2 bg-white dark:bg-gray-800 text-black dark:text-white rounded-r-lg shadow-lg hover:bg-lime-400 transition"
           >
             <i className="ri-arrow-left-s-line text-3xl"></i>
           </button>
 
           <button
             onClick={nextSlide}
-            className="hidden sm:flex items-center justify-start w-8 h-15 absolute z-20 top-[55%] right-0 transform -translate-y-1/2 bg-white p-1 rounded-l-lg shadow-lg hover:bg-lime-400 transition"
+            className="hidden sm:flex items-center justify-start w-8 h-15 absolute z-20 top-[55%] right-0 transform -translate-y-1/2 bg-white dark:bg-gray-800 text-black dark:text-white p-1 rounded-l-lg shadow-lg hover:bg-lime-400 transition"
           >
             <i className="ri-arrow-right-s-line text-3xl"></i>
           </button>
@@ -131,7 +130,10 @@ const Gallery = () => {
     <section className="py-2 px-2 md:py-8 lg:px-4">
       <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2">
         {imageUrls.map((image, index) => (
-          <div key={index} className="w-full overflow-hidden rounded-lg shadow-sm hover:shadow-md transition duration-300">
+          <div
+            key={index}
+            className="w-full overflow-hidden rounded-lg shadow-sm hover:shadow-md transition duration-300"
+          >
             <img
               src={image}
               alt={`Galeri ${index + 1}`}
@@ -167,7 +169,7 @@ const KajianPopuler = () => {
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-6">
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
         <span className="text-lime-500">Kajian Populer</span>
       </h2>
 
@@ -179,7 +181,7 @@ const KajianPopuler = () => {
           {kajianList.map((kajian, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0 w-[80%] sm:w-[60%] md:w-auto"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex-shrink-0 w-[80%] sm:w-[60%] md:w-auto"
             >
               <img
                 src={kajian.image}
@@ -187,10 +189,10 @@ const KajianPopuler = () => {
                 className="w-full h-100 object-cover"
               />
               <div className="p-3">
-                <h3 className="text-md md:text-lg font-semibold text-gray-900">
+                <h3 className="text-md md:text-lg font-semibold text-gray-900 dark:text-white">
                   {kajian.title}
                 </h3>
-                <p className="text-gray-600 mt-1 text-xs md:text-sm">
+                <p className="text-gray-600 dark:text-gray-300 mt-1 text-xs md:text-sm">
                   {kajian.subtitle}
                 </p>
               </div>
@@ -204,7 +206,7 @@ const KajianPopuler = () => {
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="bg-white dark:bg-black">
       <ImageSlider />
       <KajianPopuler />
       <Gallery />
