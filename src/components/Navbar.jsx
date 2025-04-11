@@ -142,7 +142,7 @@ const Navbar = () => {
             </button>
             {/* Tombol Donasi Dakwah (hanya muncul di desktop) */}
             <a
-              href="/donasi-dakwah"
+              href="/donasi"
               className="px-4 py-2 rounded-md bg-blue-600 hover:bg-blue-700 text-white font-medium transition"
             >
               Donasi Dakwah

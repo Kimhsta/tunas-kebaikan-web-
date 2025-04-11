@@ -2,10 +2,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Topbar from "./components/Topbar";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer"; // ← Tambahkan ini
-import Home from "./pages/Home";
+import Footer from "./components/Footer";
 import About from "./pages/About";
-// import KajianRutin from "./pages/KajianRutin";
+import Donasi from "./pages/Donasi";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
       <div className="pt-[0rem]">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/donasi" element={<Donasi />} />
           <Route path="/about" element={<About />} />
           {/* <Route path="/kajian-rutin" element={<KajianRutin />} /> */}
         </Routes>
