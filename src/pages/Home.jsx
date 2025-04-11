@@ -71,7 +71,7 @@ const ImageSlider = () => {
           transition={{ duration: 1, delay: 0.2 }}
           className="mb-2"
         >
-          <span className="px-3 py-1 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-black bg-lime-400">
+          <span className="px-2 py-0.5 sm:px-3 sm:py-1 text-sm sm:text-base md:text-lg lg:text-3xl  font-light text-black bg-lime-400">
             {slides[currentIndex].category}
           </span>
         </motion.div>
