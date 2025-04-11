@@ -15,13 +15,13 @@ const Topbar = () => {
   }, []);
 
   return (
-    <div className="w-full bg-lime-400 text-white text-sm">
+    <div className="topbar w-full bg-lime-400 text-white text-sm">
       {/* Kontainer utama: pakai h-8 agar tinggi tetap */}
       <div className="container mx-auto px-6 flex items-center h-8 space-x-4 overflow-hidden">
         {/* Tanggal Otomatis */}
-        <span className="font-semibold whitespace-nowrap leading-none text-xs md:text-sm">
-  {today}
-</span>
+        <span className="hidden md:inline font-semibold whitespace-nowrap leading-none text-xs md:text-sm">
+          {today}
+        </span>
 
 
         {/* Label "Kajian Populer" - teks disembunyikan di mobile */}
@@ -32,7 +32,7 @@ const Topbar = () => {
 
         {/* Marquee Pemateri Kajian */}
         <div className="relative flex-1 h-5 overflow-hidden">
-          <div className="absolute whitespace-nowrap animate-marquee text-gray-500">
+          <div className="absolute whitespace-nowrap animate-marquee text-gray-500 text-xs font-light">
             Dosa-dosa yang membinasakan ~ Ad Durus Al Muhimmah Li' Ammatil Ummah ~ Ust. Abu Umar Raih Gelar, Lc.
           </div>
         </div>

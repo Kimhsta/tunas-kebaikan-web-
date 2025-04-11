@@ -2,34 +2,46 @@ import Logo from '../../public/logokepala.svg';
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white pt-12 font-poppins text-sm sm:text-base">
+    <footer className="bg-gray-100 text-gray-800 pt-12 font-poppins text-sm sm:text-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Kolom 1: Logo dan Deskripsi */}
-          <div>
-            <img src={Logo} alt="Logo Tunas Kebaikan" className="h-16 sm:h-20 mb-4" />
-            <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
-              <strong className="text-white">Tunas Kebaikan</strong> adalah komunitas yang
+          <div className="flex items-start gap-4">
+            <img src={Logo} alt="Logo Tunas Kebaikan" className="h-16 sm:h-20 max-w-xs" />
+            <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+              <strong className="text-gray-800">Tunas Kebaikan</strong> adalah komunitas yang
               menumbuhkan nilai-nilai Islam melalui pendidikan, dakwah, dan aksi sosial.
             </p>
           </div>
 
-          {/* Kolom 2: Kontak */}
+          {/* Kolom 2: Menu Cepat */}
+          <div>
+            <h3 className="text-lg sm:text-xl font-semibold mb-4">Menu Cepat</h3>
+            <ul className="space-y-3 text-gray-600 text-sm sm:text-base">
+              <li><a href="/" className="hover:text-lime-600 transition">Beranda</a></li>
+              <li><a href="/tentang-kami" className="hover:text-lime-600 transition">Tentang Kami</a></li>
+              <li><a href="/kegiatan" className="hover:text-lime-600 transition">Kegiatan</a></li>
+              <li><a href="/galeri" className="hover:text-lime-600 transition">Galeri</a></li>
+              <li><a href="/kontak" className="hover:text-lime-600 transition">Kontak</a></li>
+            </ul>
+          </div>
+
+          {/* Kolom 3: Kontak */}
           <div>
             <h3 className="text-lg sm:text-xl font-semibold mb-4">Kontak Kami</h3>
-            <ul className="space-y-3 text-gray-400 text-sm sm:text-base">
+            <ul className="space-y-3 text-gray-600 text-sm sm:text-base">
               <li className="flex items-center">
-                <i className="ri-mail-line mr-3 text-lg"></i>
+                <i className="ri-mail-line mr-3 text-lg text-lime-600"></i>
                 tunas_kebaikan@gmail.com
               </li>
               <li className="flex items-center">
-                <i className="ri-phone-line mr-3 text-lg"></i>
+                <i className="ri-phone-line mr-3 text-lg text-lime-600"></i>
                 +62 812 3456 7890
               </li>
             </ul>
           </div>
 
-          {/* Kolom 3: Media Sosial */}
+          {/* Kolom 4: Media Sosial */}
           <div>
             <h3 className="text-lg sm:text-xl font-semibold mb-4">Ikuti Kami</h3>
             <div className="flex flex-wrap gap-3 sm:gap-4">
@@ -42,7 +54,7 @@ export const Footer = () => {
                 <a
                   key={idx}
                   href={item.href}
-                  className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-gray-700 hover:bg-lime-500 transition duration-300"
+                  className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full bg-lime-100 hover:bg-lime-600 hover:text-white text-lime-600 transition duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.label}
@@ -55,7 +67,7 @@ export const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-gray-700 mt-12 pt-5 pb-4 text-center text-gray-500 text-xs sm:text-sm">
+        <div className="border-t border-gray-300 mt-12 pt-5 pb-4 text-center text-gray-500 text-xs sm:text-sm">
           <p>
             © {new Date().getFullYear()} Tunas Kebaikan. All rights reserved. | Made with ❤️ by Mas Mahes
           </p>
