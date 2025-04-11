@@ -54,8 +54,8 @@ const Navbar = () => {
     <div
       className={`navbar fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/75 dark:bg-gray-900/75 backdrop-blur-md shadow-md"
-          : "bg-white dark:bg-gray-900"
+          ? "bg-white/75 dark:bg-zinc-900/75 backdrop-blur-md shadow-md"
+          : "bg-white dark:bg-zinc-900"
       }`}
     >
       <div className="container mx-auto px-4 md:px-8 lg:px-25">
@@ -70,7 +70,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                className="font-medium text-gray-700 dark:text-gray-200 hover:text-green-600 transition"
+                className="font-medium text-gray-800 dark:text-gray-200 hover:text-red-600 transition"
               >
                 Home
               </a>
@@ -78,7 +78,7 @@ const Navbar = () => {
             <li className="relative">
               <button
                 onClick={toggleDropdownKajian}
-                className="flex items-center gap-1 font-medium text-gray-700 dark:text-gray-200 hover:text-green-600 transition focus:outline-none"
+                className="flex items-center gap-1 font-medium text-gray-800 dark:text-gray-200 hover:text-red-600 transition focus:outline-none"
               >
                 Kajian
                 <i
@@ -92,7 +92,7 @@ const Navbar = () => {
                   <li>
                     <a
                       href="/kajian/sub1"
-                      className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-green-100 dark:hover:bg-green-700 transition"
+                      className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-red-100 dark:hover:bg-red-700 transition"
                     >
                       Kajian Rutin
                     </a>
@@ -100,7 +100,7 @@ const Navbar = () => {
                   <li>
                     <a
                       href="/kajian/sub2"
-                      className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-green-100 dark:hover:bg-green-700 transition"
+                      className="block px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-red-100 dark:hover:bg-red-700 transition"
                     >
                       Kajian Pekan
                     </a>
@@ -111,7 +111,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/Artikel"
-                className="font-medium text-gray-700 dark:text-gray-200 hover:text-green-600 transition"
+                className="font-medium text-gray-800 dark:text-gray-200 hover:text-red-600 transition"
               >
                 Artikel
               </a>
@@ -119,7 +119,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/About"
-                className="font-medium text-gray-700 dark:text-gray-200 hover:text-green-600 transition"
+                className="font-medium text-gray-800 dark:text-gray-200 hover:text-red-600 transition"
               >
                 About
               </a>
@@ -131,13 +131,13 @@ const Navbar = () => {
             {/* Tombol toggle tema */}
             <button
               onClick={toggleTheme}
-              className="w-10 h-10 flex items-center justify-center bg-gray-200 dark:bg-gray-700 transition rounded-xl"
+              className="group w-10 h-10 flex items-center justify-center dark:hover:bg-gray-800 hover:bg-gray-200 dark:bg-gray-700 transition rounded-xl border border-black/10 dark:border-white/10"
               aria-label="Toggle Theme"
             >
               {isDark ? (
-                <i className="ri-sun-line text-xl text-yellow-400"></i>
+                <i className="ri-sun-line text-xl group-hover:text-red-500 text-white  transition-colors duration-200"></i>
               ) : (
-                <i className="ri-moon-line text-xl text-gray-800"></i>
+                <i className="ri-moon-line text-xl text-gray-800 group-hover:text-red-500 transition-colors duration-200"></i>
               )}
             </button>
             {/* Tombol Donasi Dakwah (hanya muncul di desktop) */}
@@ -154,13 +154,13 @@ const Navbar = () => {
             {/* Tombol toggle tema */}
             <button
               onClick={toggleTheme}
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 transition"
+              className="group w-10 h-10 flex items-center justify-center bg-gray-200 dark:bg-gray-700 transition rounded-xl active:scale-95"
               aria-label="Toggle Theme"
             >
               {isDark ? (
-                <i className="ri-sun-line text-xl text-yellow-400"></i>
+                <i className="ri-sun-line text-xl text-white group-hover:text-red-500 group-active:text-red-500 transition-colors duration-200"></i>
               ) : (
-                <i className="ri-moon-line text-xl text-gray-800"></i>
+                <i className="ri-moon-line text-xl text-gray-800 group-hover:text-red-500 group-active:text-red-500 transition-colors duration-200"></i>
               )}
             </button>
             {/* Tombol Hamburger */}
@@ -194,7 +194,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                className="group font-medium text-gray-700 dark:text-gray-200 hover:bg-green-500 hover:text-white transition block rounded px-4 py-2"
+                className="group font-medium text-gray-700 dark:text-gray-200 hover:bg-red-500 hover:text-white transition block rounded px-4 py-2"
               >
                 Home
               </a>
@@ -202,7 +202,7 @@ const Navbar = () => {
             <li>
               <button
                 onClick={toggleDropdownKajian}
-                className="group w-full flex justify-between items-center font-medium text-gray-700 dark:text-gray-200 hover:bg-green-500 hover:text-white transition focus:outline-none rounded px-4 py-2"
+                className="group w-full flex justify-between items-center font-medium text-gray-700 dark:text-gray-200 hover:bg-red-500 hover:text-white transition focus:outline-none rounded px-4 py-2"
               >
                 Kajian
                 <i
@@ -216,7 +216,7 @@ const Navbar = () => {
                   <li>
                     <a
                       href="/pages/KajianRutin.jsx"
-                      className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-green-600 hover:text-white rounded transition"
+                      className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-red-600 hover:text-white rounded transition"
                     >
                       Kajian Rutin
                     </a>
@@ -224,7 +224,7 @@ const Navbar = () => {
                   <li>
                     <a
                       href="/pages/TablikAkbar.jsx"
-                      className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-green-600 hover:text-white rounded transition"
+                      className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-red-600 hover:text-white rounded transition"
                     >
                       Tablik Akbar
                     </a>
@@ -235,7 +235,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/Artikel"
-                className="group font-medium text-gray-700 dark:text-gray-200 hover:bg-green-600 hover:text-white transition block rounded px-4 py-2"
+                className="group font-medium text-gray-700 dark:text-gray-200 hover:bg-red-600 hover:text-white transition block rounded px-4 py-2"
               >
                 Artikel
               </a>
@@ -243,7 +243,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/About"
-                className="group font-medium text-gray-700 dark:text-gray-200 hover:bg-green-600 hover:text-white transition block rounded px-4 py-2"
+                className="group font-medium text-gray-700 dark:text-gray-200 hover:bg-red-600 hover:text-white transition block rounded px-4 py-2"
               >
                 About
               </a>
